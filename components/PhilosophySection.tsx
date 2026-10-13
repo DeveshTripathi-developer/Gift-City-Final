@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import { Cog, Database, Search } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export function PhilosophySection() {
   const values = [
@@ -83,9 +86,13 @@ export function PhilosophySection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
           {/* Left: 4 Rounded Cards in 2x2 Grid */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-            {values.map((v) => (
-              <article
+            {values.map((v, idx) => (
+              <motion.article
                 key={v.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="bg-white rounded-xl shadow-xs hover:shadow-md transition-shadow p-4 sm:p-5 flex flex-col items-center text-center justify-center border border-stone-100"
               >
                 <div className="mb-2 sm:mb-2.5 flex items-center justify-center">
@@ -97,12 +104,18 @@ export function PhilosophySection() {
                 <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal max-w-xs">
                   {v.desc}
                 </p>
-              </article>
+              </motion.article>
             ))}
           </div>
 
           {/* Right: Teamwork Image Card */}
-          <div className="lg:col-span-4 relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xs border border-stone-100 min-h-[260px] sm:min-h-[300px] lg:min-h-full">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-4 relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xs border border-stone-100 min-h-[260px] sm:min-h-[300px] lg:min-h-full"
+          >
             <Image
               src="/values-teamwork.png"
               alt="Anand Rathi Wealth team collaboration"
@@ -110,7 +123,7 @@ export function PhilosophySection() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 33vw"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* Objective at GIFT City Summary */}

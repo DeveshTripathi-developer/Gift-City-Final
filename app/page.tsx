@@ -9,6 +9,8 @@ import QuoteBanner from '@/components/QuoteBanner';
 import ConnectSection from '@/components/ConnectSection';
 import RegulatorySection from '@/components/RegulatorySection';
 import Footer from '@/components/Footer';
+import ScrollToTop from '@/components/ScrollToTop';
+import ScrollReveal from '@/components/ScrollReveal';
 
 export default function Home() {
   return (
@@ -21,29 +23,46 @@ export default function Home() {
         <Hero />
 
         {/* GIFT City */}
-        <GiftCitySection />
+        <ScrollReveal viewportAmount={0.12} yOffset={32}>
+          <GiftCitySection />
+        </ScrollReveal>
 
         {/* Our Philosophy */}
-        <PhilosophySection />
+        <ScrollReveal viewportAmount={0.08} yOffset={32}>
+          <PhilosophySection />
+        </ScrollReveal>
 
         {/* Our Foundation & Experience */}
-        <ExperienceSection />
+        <ScrollReveal viewportAmount={0.08} yOffset={32}>
+          <ExperienceSection />
+        </ScrollReveal>
 
         {/* Investment Leadership */}
-        <InvestmentLeadershipSection />
+        <ScrollReveal viewportAmount={0.12} yOffset={32}>
+          <InvestmentLeadershipSection />
+        </ScrollReveal>
 
         {/* Quote Break Banner */}
-        <QuoteBanner />
+        <ScrollReveal viewportAmount={0.15} yOffset={24}>
+          <QuoteBanner />
+        </ScrollReveal>
 
         {/* Connect With Us Interactive Form */}
-        <ConnectSection />
+        <ScrollReveal viewportAmount={0.08} yOffset={32}>
+          <ConnectSection />
+        </ScrollReveal>
 
         {/* Regulatory & Investor Information */}
-        <RegulatorySection />
+        <ScrollReveal viewportAmount={0.08} yOffset={32}>
+          <RegulatorySection />
+        </ScrollReveal>
       </main>
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Scroll To Top Button */}
+      <ScrollToTop />
     </div>
   );
 }

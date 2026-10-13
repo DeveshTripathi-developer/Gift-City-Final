@@ -1,16 +1,25 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export function Hero() {
   return (
     <section id="home" className="relative bg-gradient-to-b from-[#fbf9f5] via-[#f8f5ee] to-[#f4ede2] text-stone-900 border-b border-stone-200 overflow-hidden py-8 sm:py-10 lg:py-12">
       {/* Subtle architectural geometric rings */}
-      <div 
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
         className="absolute -top-36 -right-36 w-[560px] h-[560px] rounded-full border border-[#b17a2b]/10 pointer-events-none" 
         aria-hidden="true" 
       />
-      <div 
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.4, delay: 0.1, ease: 'easeOut' }}
         className="absolute -top-20 -right-20 w-[420px] h-[420px] rounded-full border border-stone-300/60 pointer-events-none" 
         aria-hidden="true" 
       />
@@ -18,7 +27,12 @@ export function Hero() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Main Hero Column */}
-          <div className="lg:col-span-7 xl:col-span-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7 xl:col-span-8"
+          >
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] font-normal mb-6 text-stone-900">
               Anand Rathi Wealth.<br />
               <span className="text-[#b17a2b] italic font-serif">Now at GIFT City.</span>
@@ -46,10 +60,15 @@ export function Hero() {
                 <ArrowUpRight className="w-4 h-4 text-[#b17a2b]" />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Philosophy Highlight Note */}
-          <div className="lg:col-span-5 xl:col-span-4 lg:justify-self-end w-full max-w-md">
+          <motion.div 
+            initial={{ opacity: 0, x: 28 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.75, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 xl:col-span-4 lg:justify-self-end w-full max-w-md"
+          >
             <aside className="border border-[#e0d6c3] bg-white shadow-xs p-6 sm:p-8 relative">
               <span className="font-serif text-5xl sm:text-6xl text-[#b17a2b] leading-none block select-none -mb-3" aria-hidden="true">
                 &ldquo;
@@ -62,7 +81,7 @@ export function Hero() {
                 OUR INVESTMENT PHILOSOPHY
               </small>
             </aside>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

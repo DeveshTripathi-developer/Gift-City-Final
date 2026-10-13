@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { X, ArrowUpRight } from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface Leader {
   name: string;
@@ -18,10 +19,10 @@ export function ExperienceSection() {
   const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
 
   const metrics = [
-    { value: '₹1,06,300\u00A0crore+', label: 'AUM as of 30 June 2026' },
-    { value: '13,941+', label: 'Client families' },
-    { value: '417', label: 'Relationship Managers' },
-    { value: '18+', label: 'Cities in India' },
+    { value: '₹1,08,377\u00A0crore+', label: 'AUM as of 30 September 2026' },
+    { value: '14,309+', label: 'Client families' },
+    { value: '431', label: 'Relationship Managers' },
+    { value: '19+', label: 'Cities in India' },
   ];
 
   const leaders: Leader[] = [
@@ -82,20 +83,32 @@ export function ExperienceSection() {
         {/* 4 Quantitative Metrics */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 py-8 border-t border-b border-stone-200">
           {metrics.map((m, idx) => (
-            <div key={idx} className="space-y-1">
+            <motion.div 
+              key={idx} 
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.45, delay: idx * 0.1, ease: 'easeOut' }}
+              className="space-y-1"
+            >
               <strong className="block font-serif text-xl sm:text-2xl md:text-3xl lg:text-[1.75rem] xl:text-3xl font-normal text-[#b17a2b] tabular-nums tracking-tight whitespace-nowrap">
                 {m.value}
               </strong>
               <span className="text-xs sm:text-sm text-stone-500 font-medium">
                 {m.label}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <p className="text-stone-600 text-sm sm:text-base leading-relaxed mt-8 max-w-3xl">
-          Alongside its international footprint, our growth has been shaped by a consistent philosophy: keep investing structured, measurable and uncomplicated.
-        </p>
+        <div className="mt-8 max-w-4xl space-y-4 text-stone-600 text-sm sm:text-base leading-relaxed">
+          <p>
+            As of 30 September 2026, Anand Rathi Wealth oversees more than ₹1,08,377 crore in AUM across 14,309+ client families, supported by 431 Relationship Managers and a presence across 19+ cities in India, with an international presence in Dubai. We have opened our United Kingdom unit, which has also received FCA approval, further strengthening our global footprint.
+          </p>
+          <p className="font-serif text-base sm:text-lg text-stone-800 italic">
+            Our growth has been shaped by a consistent philosophy: keep investing structured, measurable and uncomplicated.
+          </p>
+        </div>
 
         {/* Leadership section header matching the Meet the Visionaries style */}
         <div className="mt-16 sm:mt-24 mb-10 sm:mb-12 text-center max-w-3xl mx-auto">
@@ -113,9 +126,13 @@ export function ExperienceSection() {
 
         {/* 4 Leadership Cards in 2x2 Overlapping Photo Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-9">
-          {leaders.map((leader) => (
-            <article
+          {leaders.map((leader, idx) => (
+            <motion.article
               key={leader.name}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.55, delay: (idx % 2) * 0.12, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row items-center group"
             >
               {/* Leader Photo - Taller portrait presence */}
@@ -165,7 +182,7 @@ export function ExperienceSection() {
                   </a>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
 

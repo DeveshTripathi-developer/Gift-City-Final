@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'motion/react';
 
 export function InvestmentLeadershipSection() {
   const leaders = [
@@ -32,9 +35,19 @@ export function InvestmentLeadershipSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {leaders.map((leader, idx) => (
-            <article
+            <motion.article
               key={idx}
-              className="p-8 border border-stone-200 bg-[#fbfaf7] hover:border-[#b17a2b]/60 hover:shadow-xs transition-all flex flex-col justify-between"
+              whileHover={{
+                scale: 1.02,
+                y: -4,
+                boxShadow: '0 12px 30px -10px rgba(177, 122, 43, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 350,
+                damping: 25,
+              }}
+              className="p-8 border border-stone-200 bg-[#fbfaf7] hover:border-[#b17a2b]/70 rounded-xl transition-colors flex flex-col justify-between cursor-default"
             >
               <div>
                 <span className="text-xs font-semibold tracking-wider text-[#b17a2b] block mb-4">
@@ -55,7 +68,7 @@ export function InvestmentLeadershipSection() {
                 <span className="text-stone-300">·</span>
                 <span className="text-stone-500">Anand Rathi Wealth IFSC</span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
