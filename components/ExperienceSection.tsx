@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X } from 'lucide-react';
+import { X, ArrowUpRight } from 'lucide-react';
 
 interface Leader {
   name: string;
@@ -11,13 +11,14 @@ interface Leader {
   image: string;
   bio: string;
   fullBio: string;
+  url: string;
 }
 
 export function ExperienceSection() {
   const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
 
   const metrics = [
-    { value: '₹1,06,300 crore+', label: 'AUM as of 30 June 2026' },
+    { value: '₹1,06,300\u00A0crore+', label: 'AUM as of 30 June 2026' },
     { value: '13,941+', label: 'Client families' },
     { value: '417', label: 'Relationship Managers' },
     { value: '18+', label: 'Cities in India' },
@@ -31,6 +32,7 @@ export function ExperienceSection() {
       image: '/anand-rathi.jpg',
       bio: 'Anand Rathi established the Anand Rathi Group in 1994. He is a gold medalist Chartered Accountant and has over 50 years of diverse experience.',
       fullBio: 'Anand Rathi established the Anand Rathi Group in 1994. He is a gold medalist Chartered Accountant and has over 50 years of diverse experience. Under his leadership, Anand Rathi Group has emerged as one of India’s premier financial services conglomerates with an extensive pan-India network and international footprint. He previously served as the President of the Bombay Stock Exchange (BSE) and has been a driving force in pioneering research-backed wealth management in India.',
+      url: 'https://www.anandrathiwealth.in/Leaders/AnandRathi',
     },
     {
       name: 'Pradeep Gupta',
@@ -39,6 +41,7 @@ export function ExperienceSection() {
       image: '/pradeep-gupta.png',
       bio: "Pradeep Gupta has been instrumental in laying the foundation of the Group's Institutional Broking and Investment Services arm. He has over 20 years of experience in the financial markets.",
       fullBio: "Pradeep Gupta has been instrumental in laying the foundation of the Group's Institutional Broking and Investment Services arm. He has over 20 years of experience in the financial markets. His vision and deep understanding of capital markets and international financial flows have guided the firm's strategic expansion, establishing disciplined wealth management and advisory platforms serving ultra-high-net-worth families globally.",
+      url: 'https://www.anandrathiwealth.in/Leaders/PradeepGupta',
     },
     {
       name: 'Rakesh Rawal',
@@ -47,6 +50,7 @@ export function ExperienceSection() {
       image: '/rakesh-rawal.png',
       bio: 'Rakesh Rawal is one of the longest standing CEOs in the private wealth industry, serving as the CEO of Anand Rathi Wealth since 2007.',
       fullBio: 'Rakesh Rawal is one of the longest standing CEOs in the private wealth industry, serving as the CEO of Anand Rathi Wealth since 2007. With more than three decades of experience spanning premier private banks and asset management, he has spearheaded the disciplined processes, unique client-centric framework, and sustained growth that established Anand Rathi Wealth as an NSE 500 listed leader managing over ₹1,00,000 Crore in AUM.',
+      url: 'https://www.anandrathiwealth.in/Leaders/RakeshRawal',
     },
     {
       name: 'Feroze Azeez',
@@ -55,6 +59,7 @@ export function ExperienceSection() {
       image: '/feroze-azeez.png',
       bio: 'Feroze Azeez drives the strategic direction of the company, shaping the evolving and dynamic business landscape to make Anand Rathi Wealth an NSE500 listed company.',
       fullBio: 'Feroze Azeez drives the strategic direction of the company, shaping the evolving and dynamic business landscape to make Anand Rathi Wealth an NSE500 listed company. Frequently ranked among India’s top wealth managers and widely respected for his quantitative approach to asset allocation, financial product structuring, and investor education, he has played an indispensable role in institutionalizing transparent, uncomplicated wealth management across India and GIFT City.',
+      url: 'https://www.anandrathiwealth.in/Leaders/FerozeAzeez',
     },
   ];
 
@@ -78,7 +83,7 @@ export function ExperienceSection() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 py-8 border-t border-b border-stone-200">
           {metrics.map((m, idx) => (
             <div key={idx} className="space-y-1">
-              <strong className="block font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#b17a2b] tabular-nums tracking-tight">
+              <strong className="block font-serif text-xl sm:text-2xl md:text-3xl lg:text-[1.75rem] xl:text-3xl font-normal text-[#b17a2b] tabular-nums tracking-tight whitespace-nowrap">
                 {m.value}
               </strong>
               <span className="text-xs sm:text-sm text-stone-500 font-medium">
@@ -107,46 +112,58 @@ export function ExperienceSection() {
         </div>
 
         {/* 4 Leadership Cards in 2x2 Overlapping Photo Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-9">
           {leaders.map((leader) => (
             <article
               key={leader.name}
-              className="flex flex-col sm:flex-row items-center sm:items-stretch"
+              className="flex flex-col sm:flex-row items-center group"
             >
-              {/* Leader Photo */}
-              <div className="relative w-full sm:w-[200px] md:w-[220px] aspect-[4/5] sm:aspect-auto sm:h-[280px] md:h-[300px] shrink-0 rounded-lg sm:rounded-xl overflow-hidden shadow-sm bg-stone-100 border border-stone-200">
+              {/* Leader Photo - Taller portrait presence */}
+              <div 
+                onClick={() => setSelectedLeader(leader)}
+                className="relative w-full sm:w-[180px] md:w-[195px] aspect-[4/5] sm:aspect-auto sm:h-[245px] md:h-[255px] shrink-0 rounded-2xl overflow-hidden shadow-sm bg-[#bfc5cd] border border-stone-300/80 cursor-pointer"
+                title={`Click to view full bio of ${leader.name}`}
+              >
                 <Image
                   src={leader.image}
                   alt={leader.name}
                   fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 640px) 100vw, 220px"
+                  className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, 195px"
                 />
               </div>
 
-              {/* Overlapping White Information Card */}
-              <div className="relative z-10 w-[92%] sm:w-auto -mt-10 sm:mt-0 sm:-ml-8 md:-ml-10 my-auto bg-white p-6 sm:p-7 shadow-md rounded-xl border border-stone-200/90 text-center flex-1">
-                <h4 className="font-bold text-lg sm:text-xl text-stone-900 tracking-tight">
-                  {leader.name}
-                </h4>
-                <p className="font-bold text-xs sm:text-sm text-stone-900 mt-1">
-                  {leader.title}
-                </p>
-                {leader.role && (
-                  <p className="text-[11px] sm:text-xs text-stone-500 italic mt-0.5">
-                    {leader.role}
+              {/* Overlapping White Information Card - Reduced height & sleek floating badge */}
+              <div className="relative z-10 w-[92%] sm:w-auto -mt-6 sm:mt-0 sm:-ml-8 md:-ml-10 bg-white py-3.5 px-4.5 sm:py-4 sm:px-5.5 shadow-md hover:shadow-lg transition-all rounded-2xl border border-stone-200/90 text-center flex-1 flex flex-col justify-center">
+                <div>
+                  <h4 className="font-serif font-bold text-base sm:text-lg text-stone-900 tracking-tight leading-tight">
+                    {leader.name}
+                  </h4>
+                  <p className="font-bold text-xs sm:text-[13px] text-stone-900 mt-0.5">
+                    {leader.title}
                   </p>
-                )}
-                <p className="text-xs text-stone-600 leading-relaxed mt-2.5 mb-3 italic sm:not-italic">
-                  {leader.bio}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setSelectedLeader(leader)}
-                  className="text-xs font-semibold text-[#b17a2b] hover:text-[#95631f] transition-colors cursor-pointer inline-flex items-center gap-1 focus-visible:outline-2 focus-visible:outline-[#b17a2b]"
-                >
-                  <span>View More</span>
-                </button>
+                  {leader.role ? (
+                    <p className="text-[10px] sm:text-[11px] text-stone-500 italic mt-0.5">
+                      {leader.role}
+                    </p>
+                  ) : (
+                    <div className="h-3 sm:h-3.5" aria-hidden="true" />
+                  )}
+                  <p className="text-xs text-stone-600 leading-snug mt-1.5 mb-2.5 line-clamp-2 font-normal">
+                    {leader.bio}
+                  </p>
+                </div>
+                <div className="pt-0.5">
+                  <a
+                    href={leader.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#b17a2b] hover:text-[#95631f] transition-all group/link hover:underline focus-visible:outline-2 focus-visible:outline-[#b17a2b]"
+                  >
+                    <span>View More</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  </a>
+                </div>
               </div>
             </article>
           ))}
@@ -202,11 +219,19 @@ export function ExperienceSection() {
                 </p>
 
                 <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">
-                  <span>Anand Rathi Wealth IFSC</span>
+                  <a
+                    href={selectedLeader.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#b17a2b] hover:text-[#95631f] hover:underline"
+                  >
+                    <span>Official Profile</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
                   <button
                     type="button"
                     onClick={() => setSelectedLeader(null)}
-                    className="px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[#b17a2b] text-white hover:bg-[#95631f] transition-colors"
+                    className="px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[#b17a2b] text-white hover:bg-[#95631f] transition-colors rounded-sm"
                   >
                     Close
                   </button>

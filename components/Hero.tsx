@@ -4,7 +4,7 @@ import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section id="home" className="relative bg-gradient-to-b from-[#fbf9f5] via-[#f8f5ee] to-[#f4ede2] text-stone-900 border-b border-stone-200 overflow-hidden py-16 sm:py-20 lg:py-24">
+    <section id="home" className="relative bg-gradient-to-b from-[#fbf9f5] via-[#f8f5ee] to-[#f4ede2] text-stone-900 border-b border-stone-200 overflow-hidden py-8 sm:py-10 lg:py-12">
       {/* Subtle architectural geometric rings */}
       <div 
         className="absolute -top-36 -right-36 w-[560px] h-[560px] rounded-full border border-[#b17a2b]/10 pointer-events-none" 
@@ -19,9 +19,6 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Main Hero Column */}
           <div className="lg:col-span-7 xl:col-span-8">
-            <p className="text-xs font-semibold tracking-widest uppercase text-[#b17a2b] mb-4">
-              Anand Rathi Wealth IFSC
-            </p>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] font-normal mb-6 text-stone-900">
               Anand Rathi Wealth.<br />
               <span className="text-[#b17a2b] italic font-serif">Now at GIFT City.</span>
