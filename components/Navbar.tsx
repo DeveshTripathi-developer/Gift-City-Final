@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import Logo from './Logo';
+import ReadingProgressBar from './ReadingProgressBar';
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -93,6 +94,9 @@ export function Navbar() {
           </nav>
         </div>
       )}
+
+      {/* Horizontal Reading Progress Bar */}
+      <ReadingProgressBar className="absolute bottom-0 left-0 right-0 z-50" />
     </header>
   );
 }
