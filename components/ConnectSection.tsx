@@ -39,9 +39,6 @@ export function ConnectSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Heading & Context */}
           <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <p className="text-xs font-semibold tracking-widest uppercase text-[#b17a2b] mb-3">
-              CONNECT
-            </p>
             <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 font-normal tracking-tight leading-tight mb-5">
               Start a conversation about investing through GIFT City
             </h2>

@@ -69,9 +69,6 @@ export function ExperienceSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Foundation Head */}
         <div className="max-w-3xl mb-12">
-          <p className="text-xs font-semibold tracking-widest uppercase text-[#b17a2b] mb-3">
-            OUR FOUNDATION
-          </p>
           <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 font-normal tracking-tight leading-tight mb-4">
             Built on more than two decades of experience
           </h2>

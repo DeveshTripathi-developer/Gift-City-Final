@@ -55,9 +55,6 @@ export function PhilosophySection() {
         {/* Philosophy Intro Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start mb-10 pb-8 sm:mb-12 sm:pb-10 border-b border-stone-200/80">
           <div className="lg:col-span-5">
-            <p className="text-xs font-semibold tracking-widest uppercase text-[#b17a2b] mb-2.5">
-              OUR PHILOSOPHY
-            </p>
             <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 font-normal tracking-tight leading-tight">
               Our philosophy.<br />
               In a new financial ecosystem.

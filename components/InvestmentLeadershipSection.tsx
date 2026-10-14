@@ -6,14 +6,12 @@ import { motion } from 'motion/react';
 export function InvestmentLeadershipSection() {
   const leaders = [
     {
-      index: 'INVESTMENT LEADERSHIP',
       name: 'Dipal Patel',
       designation: '[Approved Designation]',
       desc: 'Leading investment structuring and client portfolio solutions within the GIFT City International Financial Services Centre.',
       bio: "Dipal's BIO",
     },
     {
-      index: 'INVESTMENT LEADERSHIP',
       name: 'Sarfaraj Rathod',
       designation: '[Approved Designation]',
       desc: "Sarfaraj brings expertise across financial and regulatory disciplines, supporting the platform's investment, operating and governance framework.",
@@ -25,9 +23,6 @@ export function InvestmentLeadershipSection() {
     <section id="leadership" className="py-20 lg:py-24 bg-white border-b border-stone-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-12">
-          <p className="text-xs font-semibold tracking-widest uppercase text-[#b17a2b] mb-3">
-            INVESTMENT LEADERSHIP
-          </p>
           <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 font-normal tracking-tight leading-tight">
             Investment thinking backed by experience
           </h2>
@@ -50,9 +45,6 @@ export function InvestmentLeadershipSection() {
               className="p-8 border border-stone-200 bg-[#fbfaf7] hover:border-[#b17a2b]/70 rounded-xl transition-colors flex flex-col justify-between cursor-default"
             >
               <div>
-                <span className="text-xs font-semibold tracking-wider text-[#b17a2b] block mb-4">
-                  {leader.index}
-                </span>
                 <h3 className="font-serif text-2xl sm:text-3xl text-stone-900 font-normal mb-1.5">
                   {leader.name}
                 </h3>
