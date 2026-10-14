@@ -1,4 +1,4 @@
-// File: /app/applet/app/layout.tsx
+// File: D:\development\Gift-City-Final\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
